@@ -1,4 +1,4 @@
-# Frontend Mentor -
+# Frontend Mentor - Blogr landing page solution
 
 ## Welcome! 👋
 
@@ -15,16 +15,16 @@ Thanks for checking out this front-end coding challenge solution.
 
 ## Overview
 
-REMOVE
+This is a solution to the [Blogr landing page challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/blogr-landing-page-EX2RLAApP). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
 ### Preview Screenshot
 
-![Preview for the ](./preview/desktop-preview.png)
+![Preview for the Blogr landing page](./preview/desktop-preview.png)
 
 ### Links
 
-- Solution URL: [github.com/lucasweidas/](https://github.com/lucasweidas/)
-- Live Site URL: [lucasweidas.github.io//](https://lucasweidas.github.io//)
+- Solution URL: [github.com/lucasweidas/blogr-landing-page-main](https://github.com/lucasweidas/blogr-landing-page-main)
+- Live Site URL: [lucasweidas.github.io/blogr-landing-page-main/](https://lucasweidas.github.io/blogr-landing-page-main/)
 
 ## My process
 
@@ -32,10 +32,11 @@ REMOVE
 
 - Semantic HTML5 markup
 - CSS custom properties
-- CSS Grid
 - CSS Flex
 - Mobile-first workflow
 - Pure JS
+- SASS-SCSS
+- Vite
 
 ## Author
 
