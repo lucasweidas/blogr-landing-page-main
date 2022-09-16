@@ -13,12 +13,12 @@ function filterHeaderNavClick({ target, currentTarget }) {
 
   switch (target.dataset.js) {
     case 'nav-toggle':
-      if (verifyDropdownStatus(isMediumScreen())) {
+      if (isMediumScreen() && verifyDropdownStatus()) {
         return setTimeout(toggleHeaderNav, timer, target, currentTarget);
       }
       return toggleHeaderNav(target, currentTarget);
     case 'dropdown-toggle':
-      if (verifyHeaderNavStatus()) {
+      if (isMediumScreen() && verifyHeaderNavStatus()) {
         return setTimeout(toggleDropdown, timer, target);
       }
       return toggleDropdown(target);
@@ -34,7 +34,7 @@ function closing(element) {
       element.classList.remove('closing');
 
       if (element === headerNav && isSmallDevice) {
-        verifyDropdownStatus(isSmallDevice);
+        verifyDropdownStatus();
       }
     },
     { once: true }
@@ -61,7 +61,7 @@ function toggleHeaderNav(toggle, nav) {
 }
 
 function verifyHeaderNavStatus() {
-  if (!isMediumScreen() || !isActive(headerNav)) return;
+  if (!isActive(headerNav)) return;
 
   const navToggle = headerNav.querySelector('[data-js="nav-toggle"]');
   toggleHeaderNav(navToggle, headerNav);
@@ -105,9 +105,7 @@ function configureDropdown(toggle, dropdown, active, height) {
   toggle.setAttribute('aria-expanded', active);
 }
 
-function verifyDropdownStatus(isValidScreen) {
-  if (!isValidScreen) return;
-
+function verifyDropdownStatus() {
   const currentDropdown = document.querySelector('[data-js="dropdown"].active');
 
   if (!isActive(currentDropdown)) return;
