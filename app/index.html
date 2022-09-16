@@ -29,8 +29,9 @@
               </svg>
             </a>
           </div>
+
           <button
-            class="nav__toggle"
+            class="nav__toggle toggle-small-device"
             data-js="nav-toggle"
             aria-label="Navigation Menu"
             aria-controls="menu"
@@ -40,6 +41,7 @@
           >
             <span class="icon"></span>
           </button>
+
           <div class="nav__menu menu" id="menu">
             <div class="menu__wrapper">
               <div class="dropdown" data-js="dropdown">
@@ -106,6 +108,17 @@
                 </div>
               </div>
             </div>
+            <button
+              class="nav__toggle toggle-medium-device"
+              data-js="nav-toggle"
+              aria-label="Account Menu"
+              aria-controls="menu"
+              aria-pressed="false"
+              aria-expanded="false"
+              aria-haspopup="menu"
+            >
+              <span class="icon"></span>
+            </button>
             <div class="menu__entry">
               <button class="button button--login">Login</button>
               <button class="button button--signUp">Sign Up</button>

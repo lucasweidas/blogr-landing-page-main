@@ -72,6 +72,24 @@
     height: 0;
     overflow: hidden;
     transition: height 200ms ease-in-out;
+    visibility: hidden;
+
+    .dropdown.active & {
+      visibility: visible;
+    }
+
+    .dropdown.closing & {
+      animation: closing-wrapper var(--duration-2) ease-in-out forwards;
+
+      @keyframes closing-wrapper {
+        0% {
+          visibility: visible;
+        }
+        100% {
+          visibility: hidden;
+        }
+      }
+    }
 
     @include breakpoint(medium) {
       min-width: rem(168);

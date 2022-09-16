@@ -20,7 +20,8 @@
   }
 
   @include breakpoint(medium) {
-    margin-inline: auto rem(32);
+    column-gap: rem(32);
+    margin-inline: auto 0;
   }
 
   @include breakpoint(large) {

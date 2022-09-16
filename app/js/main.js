@@ -13,7 +13,7 @@ function filterHeaderNavClick({ target, currentTarget }) {
 
   switch (target.dataset.js) {
     case 'nav-toggle':
-      if (verifyDropdownStatus()) {
+      if (verifyDropdownStatus(isMediumScreen())) {
         return setTimeout(toggleHeaderNav, timer, target, currentTarget);
       }
       return toggleHeaderNav(target, currentTarget);
@@ -26,14 +26,16 @@ function filterHeaderNavClick({ target, currentTarget }) {
 }
 
 function closing(element) {
-  const dropdownToggle = document.querySelector('[data-js="dropdown"].active [data-js="dropdown-toggle"]');
-
   element.classList.add('closing');
   element.addEventListener(
     'animationend',
     () => {
+      const isSmallDevice = document.documentElement.offsetWidth < 768;
       element.classList.remove('closing');
-      dropdownToggle && toggleDropdown(dropdownToggle);
+
+      if (element === headerNav && isSmallDevice) {
+        verifyDropdownStatus(isSmallDevice);
+      }
     },
     { once: true }
   );
@@ -44,7 +46,8 @@ function isActive(element) {
 }
 
 function isMediumScreen() {
-  return window.screen.width >= 768 && window.screen.width < 1024;
+  const { offsetWidth } = document.documentElement;
+  return offsetWidth >= 768 && offsetWidth < 1024;
 }
 
 // Header Navigation Functions
@@ -72,14 +75,17 @@ function toggleDropdown(toggle) {
   const active = currentDropdown.classList.contains('active');
 
   if (active) {
+    closing(currentDropdown);
     return configureDropdown(toggle, currentDropdown, !active, 0);
   }
 
   if (previousDropdown) {
     const previousToggle = previousDropdown.querySelector('[data-js="dropdown-toggle"]');
+
+    closing(previousDropdown);
     configureDropdown(previousToggle, previousDropdown, active, 0);
 
-    if (window.screen.width >= 768) {
+    if (document.documentElement.offsetWidth >= 768) {
       return setTimeout(configureDropdown, 200, toggle, currentDropdown, !active);
     }
   }
@@ -99,8 +105,8 @@ function configureDropdown(toggle, dropdown, active, height) {
   toggle.setAttribute('aria-expanded', active);
 }
 
-function verifyDropdownStatus() {
-  if (!isMediumScreen()) return;
+function verifyDropdownStatus(isValidScreen) {
+  if (!isValidScreen) return;
 
   const currentDropdown = document.querySelector('[data-js="dropdown"].active');
 

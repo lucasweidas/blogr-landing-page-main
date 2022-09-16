@@ -8,8 +8,23 @@
   position: relative;
 
   &__toggle {
-    order: 1;
     background-color: transparent;
+
+    @include breakpoint-down(medium) {
+      &.toggle-medium-device {
+        display: none;
+      }
+    }
+
+    @include breakpoint(medium) {
+      &.toggle-small-device {
+        display: none;
+      }
+    }
+
+    @include breakpoint(large) {
+      display: none;
+    }
 
     .icon {
       width: rem(32);
@@ -21,10 +36,6 @@
       .nav.active & {
         background-image: url('../images/icon-close.svg');
       }
-    }
-
-    @include breakpoint(large) {
-      display: none;
     }
   }
 }

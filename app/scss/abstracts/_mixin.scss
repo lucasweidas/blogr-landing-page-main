@@ -26,9 +26,9 @@
 }
 
 @mixin dropdown-active {
-  animation: show var(--duration-2) ease-in-out forwards;
+  animation: show-dropdown var(--duration-2) ease-in-out forwards;
 
-  @keyframes show {
+  @keyframes show-dropdown {
     0% {
       opacity: 0;
       visibility: hidden;
@@ -43,9 +43,9 @@
 }
 
 @mixin dropdown-closing {
-  animation: closing var(--duration-2) ease-in-out forwards;
+  animation: closing-dropdown var(--duration-2) ease-in-out forwards;
 
-  @keyframes closing {
+  @keyframes closing-dropdown {
     0% {
       opacity: 1;
       visibility: visible;
