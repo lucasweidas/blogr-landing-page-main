@@ -1,0 +1,185 @@
+@use '../abstracts' as *;
+
+.content {
+  @extend %flex-column-Xcenter;
+  gap: rem(48);
+  text-align: center;
+  width: min(100%, rem(1120));
+
+  @include breakpoint(large) {
+    text-align: start;
+  }
+
+  &--start {
+    @include breakpoint(large) {
+      position: relative;
+
+      flex-direction: row;
+      justify-content: space-between;
+
+      .content__container {
+        row-gap: rem(80);
+      }
+    }
+
+    .image {
+      @include breakpoint(large) {
+        position: absolute;
+        top: rem(-230);
+        right: rem(-400);
+      }
+
+      img {
+        width: min(100% + rem(80), rem(406));
+
+        @include breakpoint(medium) {
+          width: rem(460);
+        }
+
+        @include breakpoint(large) {
+          width: rem(880);
+        }
+      }
+    }
+  }
+
+  &--middle {
+    width: calc(100% + rem(48));
+    min-height: rem(600);
+    background: url('../images/bg-pattern-circles.svg') top rem(-240) center / rem(600) no-repeat, linear-gradient(120deg, var(--linear-gradient-blue));
+    margin-block-start: rem(270);
+    margin-inline: rem(-24);
+    border-start-end-radius: var(--border-r);
+    border-end-start-radius: var(--border-r);
+
+    @include breakpoint(medium) {
+      min-height: rem(490);
+    }
+
+    @include breakpoint(large) {
+      min-height: rem(400);
+      justify-content: center;
+      background-position: top rem(-500) left rem(-210), center;
+      background-size: auto;
+      margin-block-start: rem(240);
+      margin-inline: 0;
+    }
+
+    @include breakpoint(xlarge) {
+      background-position: top rem(-500) left calc(30% + rem(-210)), center;
+    }
+
+    .content__container {
+      width: min(100%, rem(1120));
+      align-items: center;
+
+      @include breakpoint(large) {
+        align-items: flex-end;
+        position: relative;
+      }
+    }
+
+    .content__wrapper {
+      padding: min(48vw, rem(172)) rem(24) rem(80);
+
+      @include breakpoint(large) {
+        width: rem(524);
+        padding: 0 rem(24) 0 0;
+      }
+    }
+
+    .image {
+      position: relative;
+
+      @include breakpoint(large) {
+        position: absolute;
+        top: rem(-180);
+        left: rem(-40);
+      }
+
+      img {
+        --img-w: 23.438rem;
+        width: min(100vw, var(--img-w));
+        position: absolute;
+        top: calc(var(--img-w) / 2 * -1);
+
+        @include breakpoint-down(small) {
+          top: -50vw;
+        }
+
+        @include breakpoint(medium) {
+          --img-w: 25rem;
+        }
+
+        @include breakpoint(large) {
+          width: min(100vw, rem(420));
+          width: rem(552);
+          position: static;
+        }
+      }
+    }
+  }
+
+  &--end {
+    margin-block-start: rem(64);
+
+    @include breakpoint(large) {
+      height: rem(880);
+      align-items: flex-end;
+      justify-content: center;
+      position: relative;
+      margin-block-start: rem(80);
+
+      .content__container {
+        width: clamp(rem(480), 46vw, rem(524));
+      }
+    }
+
+    .image {
+      @include breakpoint(large) {
+        position: absolute;
+        top: rem(35);
+        left: rem(-350);
+        left: rem(-435);
+      }
+
+      img {
+        width: min(100% + rem(144), rem(498));
+
+        @include breakpoint(medium) {
+          width: rem(560);
+        }
+
+        @include breakpoint(large) {
+          width: auto;
+        }
+      }
+    }
+  }
+
+  .image {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__container {
+    @extend %flex-column-Xcenter;
+    row-gap: rem(48);
+
+    @include breakpoint(large) {
+      align-items: flex-start;
+    }
+  }
+
+  &__wrapper {
+    width: min(100%, rem(460));
+
+    @include breakpoint(medium) {
+      width: rem(580);
+    }
+
+    @include breakpoint(large) {
+      width: min(100%, rem(500));
+    }
+  }
+}

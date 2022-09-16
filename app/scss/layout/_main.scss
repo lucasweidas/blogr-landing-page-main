@@ -1,0 +1,22 @@
+@use '../abstracts' as *;
+
+.main {
+  padding: rem(108) rem(24) rem(80);
+  overflow: hidden;
+
+  @include breakpoint(large) {
+    padding-block-start: rem(160);
+  }
+
+  &__container {
+    @extend %flex-column-Xcenter;
+
+    & > .heading--2 {
+      margin-block-end: rem(48);
+
+      @include breakpoint(large) {
+        margin-block-end: rem(100);
+      }
+    }
+  }
+}

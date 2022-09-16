@@ -1,0 +1,58 @@
+@use 'breakpoints' as *;
+@use 'functions' as *;
+
+@mixin breakpoint($size) {
+  @media screen and (min-width: map-get($breakpoints-up, $size)) {
+    @content;
+  }
+}
+
+@mixin breakpoint-down($size) {
+  @media screen and (max-width: map-get($breakpoints-down, $size)) {
+    @content;
+  }
+}
+
+@mixin dropdown {
+  position: absolute;
+  top: rem(68);
+  right: 0;
+  visibility: hidden;
+  opacity: 0;
+  background-color: var(--clr-white);
+  padding: rem(32) rem(24);
+  border-radius: rem(8);
+  box-shadow: 0 rem(6) rem(20) rem(-2) hsl(0, 0%, 0%, 0.25);
+}
+
+@mixin dropdown-active {
+  animation: show var(--duration-2) ease-in-out forwards;
+
+  @keyframes show {
+    0% {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10%);
+    }
+    100% {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+  }
+}
+
+@mixin dropdown-closing {
+  animation: closing var(--duration-2) ease-in-out forwards;
+
+  @keyframes closing {
+    0% {
+      opacity: 1;
+      visibility: visible;
+    }
+    100% {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+}

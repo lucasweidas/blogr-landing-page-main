@@ -1,0 +1,60 @@
+@use '../abstracts' as *;
+
+:root {
+  --ff-overpass: 'Overpass', sans-serif;
+  --ff-ubuntu: 'Ubuntu', sans-serif;
+  --fs-1: 1rem;
+  --fs-2: 1.125rem;
+}
+
+body {
+  font-family: var(--ff-overpass);
+  font-size: var(--fs-1);
+}
+
+.heading {
+  font-weight: 600;
+
+  &--2 {
+    @extend .heading;
+    font-size: rem(28);
+    color: var(--clr-dark-blue-2);
+    text-align: center;
+
+    @include breakpoint(medium) {
+      font-size: rem(38);
+    }
+
+    &--bigger {
+      @extend .heading;
+      font-size: clamp(rem(30), 10vw, rem(36));
+      color: var(--clr-white);
+      line-height: 1.3;
+    }
+  }
+
+  &--3 {
+    @extend .heading;
+    padding-inline: rem(10);
+    font-size: rem(28);
+    color: var(--clr-dark-blue-2);
+    line-height: 1.15;
+
+    @include breakpoint(large) {
+      padding-inline: 0;
+      font-size: rem(24);
+    }
+  }
+}
+
+.paragraph {
+  margin-block-start: rem(16);
+  font-weight: 300;
+  color: var(--clr-dark-blue-1);
+  line-height: 1.8;
+
+  &--white {
+    @extend .paragraph;
+    color: var(--clr-white-2);
+  }
+}

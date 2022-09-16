@@ -1,0 +1,76 @@
+@use '../abstracts' as *;
+
+.button {
+  width: rem(138);
+  height: rem(48);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  font-family: var(--ff-ubuntu);
+  font-weight: 700;
+  border-radius: rem(24);
+  transition-property: background-color, color;
+  transition: 200ms ease;
+
+  &--white {
+    background-color: var(--clr-white);
+    color: var(--clr-red-1);
+
+    @include breakpoint(medium) {
+      &:is(:hover, :focus-visible) {
+        background-color: var(--clr-light-red-2);
+        color: var(--clr-white);
+      }
+    }
+  }
+
+  &--border {
+    border: rem(1) solid var(--clr-white);
+    color: var(--clr-white);
+
+    @include breakpoint(medium) {
+      &:is(:hover, :focus-visible) {
+        background-color: var(--clr-white);
+        color: var(--clr-red-1);
+      }
+    }
+  }
+
+  &--login {
+    width: rem(100);
+    color: var(--clr-dark-blue-2);
+    font-size: var(--fs-2);
+
+    @include breakpoint-down(medium) {
+      font-family: var(--ff-overpass);
+      font-weight: 600;
+    }
+
+    @include breakpoint(large) {
+      color: var(--clr-white);
+      border: rem(1) solid transparent;
+      transition: border-color var(--duration-2) ease;
+
+      &:is(:hover, :focus-visible) {
+        border-color: currentColor;
+      }
+    }
+  }
+
+  &--signUp {
+    background-image: linear-gradient(90deg, var(--linear-gradient-red));
+    color: var(--clr-white);
+
+    @include breakpoint(large) {
+      background-image: none;
+      background-color: var(--clr-white);
+      color: var(--clr-red-1);
+
+      &:is(:hover, :focus-visible) {
+        background-color: var(--clr-light-red-2);
+        color: var(--clr-white);
+      }
+    }
+  }
+}

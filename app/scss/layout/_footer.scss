@@ -1,0 +1,79 @@
+@use '../abstracts' as *;
+
+.footer {
+  background-color: var(--clr-dark-blue-9);
+  padding: rem(74) rem(24);
+  border-start-end-radius: var(--border-r);
+
+  &__container {
+    @extend %flex-column-Xcenter;
+    width: min(100%, rem(1120));
+    row-gap: rem(78);
+    margin-inline: auto;
+    text-align: center;
+
+    @include breakpoint(large) {
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: flex-start;
+      text-align: start;
+    }
+  }
+
+  &__nav {
+    @extend %flex-column-Xcenter;
+    width: 100%;
+    row-gap: rem(52);
+
+    @include breakpoint(medium) {
+      flex-direction: row;
+      justify-content: center;
+      align-items: flex-start;
+      column-gap: rem(160);
+    }
+
+    @include breakpoint(large) {
+      column-gap: rem(200);
+    }
+  }
+
+  .guide {
+    @extend %flex-column-Xcenter;
+    font-family: var(--ff-ubuntu);
+
+    @include breakpoint(large) {
+      align-items: flex-start;
+    }
+
+    &__heading {
+      display: block;
+      margin-block-end: rem(32);
+      color: var(--clr-white);
+
+      @include breakpoint(medium) {
+        margin-block-end: rem(40);
+      }
+    }
+
+    .list {
+      @extend %flex-column-Xcenter;
+      row-gap: rem(14);
+
+      @include breakpoint(medium) {
+        row-gap: rem(18);
+      }
+
+      @include breakpoint(large) {
+        align-items: flex-start;
+      }
+
+      &__link {
+        color: var(--clr-grayish-blue-1);
+
+        &:is(:hover, :focus-visible) {
+          text-decoration: underline solid currentColor rem(2);
+        }
+      }
+    }
+  }
+}

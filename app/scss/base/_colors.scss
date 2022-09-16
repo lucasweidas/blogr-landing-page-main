@@ -1,0 +1,17 @@
+:root {
+  --clr-white: hsl(0, 0%, 100%);
+  --clr-white-2: hsl(0, 0%, 94%);
+  --clr-light-red-1: hsl(13, 100%, 72%);
+  --clr-light-red-2: hsl(355, 100%, 74%);
+  --clr-red-1: hsl(356, 100%, 66%);
+  --clr-red-2: hsl(353, 100%, 62%);
+  --clr-grayish-blue-1: hsl(240, 2%, 79%);
+  --clr-dark-blue-1: hsl(207, 13%, 34%);
+  --clr-dark-blue-2: hsl(208, 49%, 24%);
+  --clr-dark-blue-3: hsl(208, 35%, 45%);
+  --clr-dark-blue-6: hsl(237, 23%, 32%);
+  --clr-dark-blue-8: hsl(237, 17%, 21%);
+  --clr-dark-blue-9: hsl(240, 10%, 16%);
+  --linear-gradient-red: var(--clr-light-red-1), var(--clr-red-2);
+  --linear-gradient-blue: var(--clr-dark-blue-8), var(--clr-dark-blue-6);
+}

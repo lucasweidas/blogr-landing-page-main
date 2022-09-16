@@ -1,0 +1,30 @@
+@use '../abstracts' as *;
+
+.nav {
+  height: fit-content;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+
+  &__toggle {
+    order: 1;
+    background-color: transparent;
+
+    .icon {
+      width: rem(32);
+      height: rem(24);
+      display: block;
+      background: url('../images/icon-hamburger.svg') center / contain no-repeat;
+      pointer-events: none;
+
+      .nav.active & {
+        background-image: url('../images/icon-close.svg');
+      }
+    }
+
+    @include breakpoint(large) {
+      display: none;
+    }
+  }
+}

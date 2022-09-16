@@ -1,0 +1,17 @@
+@use '../abstracts' as *;
+
+.logo {
+  width: rem(82);
+  height: rem(32);
+  flex: 0 0 auto;
+
+  @include breakpoint(medium) {
+    width: rem(101);
+    height: rem(40);
+  }
+
+  & svg {
+    width: 100%;
+    height: 100%;
+  }
+}
